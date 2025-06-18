@@ -1,0 +1,41 @@
+{
+  "name": "uniswap-sniper-bot",
+  "version": "1.0.0",
+  "description": "Advanced Uniswap token sniping bot with automated analysis and profit optimization",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "start:testnet": "NETWORK=testnet node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon main.js",
+    "setup": "npm install && echo '✅ Bot dependencies installed. Configure your environment variables and run npm start'"
+  },
+  "keywords": [
+    "uniswap",
+    "ethereum",
+    "defi",
+    "trading",
+    "bot",
+    "cryptocurrency",
+    "web3"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/uniswap-sniper-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/uniswap-sniper-bot/issues"
+  },
+  "homepage": "https://github.com/yourusername/uniswap-sniper-bot#readme"
+} 
