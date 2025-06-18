@@ -28,7 +28,7 @@ This bot trades with **REAL MONEY** and can **LOSE ALL YOUR FUNDS**. Before proc
 
 ### Step 1: Deploy Smart Contract (Remix)
 1. **Open Remix IDE**: https://remix.ethereum.org/
-2. **Import contracts** from your `contracts/` folder
+2. **Import contracts** from your `remix-contracts/` folder
 3. **Compile** with Solidity 0.8.19+
 4. **Deploy** `UniswapSniper.sol` using `DeployScript.sol`
 5. **Copy the contract address** - you'll need this for the bot
@@ -52,7 +52,7 @@ Create an account and get your HTTP endpoint URL.
 
 ```bash
 # Navigate to bot directory
-cd bot/
+cd local-bot/
 
 # Install dependencies
 npm install
@@ -63,7 +63,7 @@ yarn install
 
 ### Step 4: Configure Environment Variables
 
-Create a `.env` file in the `bot/` directory:
+Create a `.env` file in the `local-bot/` directory:
 
 ```bash
 # Create .env file

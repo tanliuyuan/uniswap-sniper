@@ -35,12 +35,13 @@ Make sure MetaMask is connected to your desired network:
 2. Create a new workspace or use default
 3. Create the following folder structure:
    ```
-   contracts/
-   ├── UniswapSniper.sol
-   deploy/
-   ├── DeployScript.sol
-   examples/
-   ├── UsageExamples.sol
+   remix-contracts/
+   ├── contracts/
+   │   └── UniswapSniper.sol
+   ├── deploy/
+   │   └── DeployScript.sol
+   └── examples/
+       └── UsageExamples.sol
    ```
 
 ### Step 2: Install Dependencies

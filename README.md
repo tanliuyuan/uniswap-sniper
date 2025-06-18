@@ -36,28 +36,37 @@ This project is provided for **educational purposes only**. Automated trading ca
 
 ```
 uniswap-sniper/
-├── contracts/
-│   └── UniswapSniper.sol          # Main sniper contract
-├── deploy/
-│   └── DeployScript.sol           # Deployment helper
-├── examples/
-│   └── UsageExamples.sol          # Usage examples
-├── REMIX_USAGE_GUIDE.md           # Comprehensive usage guide
-├── SECURITY_CHECKLIST.md          # Security checklist
+├── remix-contracts/               # 📁 Smart Contracts (for Remix IDE)
+│   ├── contracts/
+│   │   └── UniswapSniper.sol      # Main sniper contract
+│   ├── deploy/
+│   │   └── DeployScript.sol       # Deployment helper
+│   └── examples/
+│       └── UsageExamples.sol      # Usage examples
+├── local-bot/                     # 📁 Automated Trading Bot (Node.js)
+│   ├── TokenSniperBot.js          # Main bot logic
+│   ├── config.js                  # Configuration
+│   ├── main.js                    # Entry point
+│   └── package.json               # Dependencies
+├── docs/                          # 📁 Documentation
+│   ├── REMIX_USAGE_GUIDE.md       # Remix setup guide
+│   ├── BOT_SETUP_GUIDE.md         # Bot installation guide
+│   └── SECURITY_CHECKLIST.md      # Security checklist
 └── README.md                      # This file
 ```
 
 ## 🚀 **Quick Start**
 
 ### 1. Prerequisites
-- [Remix IDE](https://remix.ethereum.org/)
+- [Remix IDE](https://remix.ethereum.org/) - For smart contract deployment
+- [Node.js](https://nodejs.org/) 14+ - For running the automated bot
 - MetaMask browser extension
 - Test ETH (get from faucets for testnets)
 
 ### 2. Setup in Remix
 1. Open Remix IDE
 2. Create a new workspace
-3. Copy all contract files to appropriate directories
+3. Import only the `remix-contracts/` folder contents
 4. Install OpenZeppelin contracts: `npm install @openzeppelin/contracts`
 5. Compile contracts with Solidity 0.8.19+
 
@@ -84,20 +93,34 @@ sniper.setMaxSlippage(300);
 sniper.setAuthorizedTrader(0x..., true);
 ```
 
-### 5. Start Trading
-```solidity
-// Snipe a token with 1 ETH and 5% slippage
-sniper.snipeTokenWithETH{value: 1 ether}(tokenAddress, 500);
+### 5. Setup Automated Bot
+```bash
+# Navigate to bot directory
+cd local-bot/
 
-// Check pair exists first
+# Install dependencies
+npm install
+
+# Configure environment variables (.env file)
+# Add your private key, RPC URL, and contract address
+
+# Start the bot (testnet first!)
+NETWORK=testnet npm start
+```
+
+### 6. Manual Trading (Optional)
+```solidity
+// You can also trade manually through Remix:
+sniper.snipeTokenWithETH{value: 1 ether}(tokenAddress, 500);
 bool exists = sniper.pairExists(tokenAddress, wethAddress);
 ```
 
 ## 📖 **Detailed Documentation**
 
-- **[Remix Usage Guide](REMIX_USAGE_GUIDE.md)**: Complete guide for using the contracts in Remix
-- **[Security Checklist](SECURITY_CHECKLIST.md)**: Comprehensive security review checklist
-- **[Usage Examples](examples/UsageExamples.sol)**: Code examples for common use cases
+- **[Remix Usage Guide](docs/REMIX_USAGE_GUIDE.md)**: Complete guide for using the contracts in Remix
+- **[Bot Setup Guide](docs/BOT_SETUP_GUIDE.md)**: Step-by-step bot installation and configuration
+- **[Security Checklist](docs/SECURITY_CHECKLIST.md)**: Comprehensive security review checklist
+- **[Usage Examples](remix-contracts/examples/UsageExamples.sol)**: Code examples for common use cases
 
 ## 🔒 **Security Features**
 
@@ -134,6 +157,31 @@ bool exists = sniper.pairExists(tokenAddress, wethAddress);
 5. **Regulatory Risk**: Regulations may change affecting legality
 6. **MEV Risk**: Other bots may front-run your transactions
 
+## 🔄 **Complete Workflow**
+
+This project consists of **two components** that work together:
+
+### **Phase 1: Smart Contract (Remix IDE)**
+```bash
+1. Import remix-contracts/ folder into Remix
+2. Compile and deploy UniswapSniper.sol
+3. Configure contract settings (trading limits, slippage)
+4. Copy deployed contract address
+```
+
+### **Phase 2: Automated Bot (Your Computer)**
+```bash
+1. cd local-bot/
+2. npm install
+3. Configure .env with contract address from Phase 1
+4. npm start
+```
+
+### **How They Connect**
+- **Smart Contract**: Handles secure trading execution on-chain
+- **Bot**: Monitors blockchain, analyzes tokens, calls contract
+- **Connection**: Bot sends transactions to your deployed contract
+
 ## 🛠 **Development**
 
 ### Local Development
@@ -142,14 +190,16 @@ bool exists = sniper.pairExists(tokenAddress, wethAddress);
 git clone https://github.com/yourusername/uniswap-sniper.git
 cd uniswap-sniper
 
-# Open in Remix or your preferred Solidity IDE
+# For contracts: Import remix-contracts/ into Remix IDE
+# For bot: cd local-bot/ && npm install
 ```
 
 ### Testing
-- Always test on Uniswap testnets first (Goerli, Sepolia)
-- Start with small amounts
-- Verify all functions work as expected
-- Monitor gas usage and transaction success
+- **Smart Contract**: Deploy on Goerli testnet through Remix first
+- **Bot Setup**: Run bot with `NETWORK=testnet npm start`
+- **Integration**: Test bot → contract communication
+- **Start Small**: Use minimal amounts (0.01 ETH)
+- **Monitor**: Watch logs and transaction success
 
 ### Contributing
 1. Fork the repository
