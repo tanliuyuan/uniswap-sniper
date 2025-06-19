@@ -112,7 +112,7 @@ contract UniswapSniper is ReentrancyGuard, Ownable, Pausable {
         _;
     }
     
-    constructor(address _uniswapRouter) {
+    constructor(address _uniswapRouter) Ownable(msg.sender) {
         require(_uniswapRouter != address(0), "Invalid router address");
         
         uniswapRouter = IUniswapV2Router02(_uniswapRouter);
@@ -205,8 +205,8 @@ contract UniswapSniper is ReentrancyGuard, Ownable, Pausable {
         // Transfer tokens from caller to this contract
         token.safeTransferFrom(msg.sender, address(this), tokenAmount);
         
-        // Approve router to spend tokens
-        token.safeApprove(address(uniswapRouter), tokenAmount);
+        // Approve router to spend tokens (using safeIncreaseAllowance for compatibility)
+        token.safeIncreaseAllowance(address(uniswapRouter), tokenAmount);
         
         // Calculate minimum ETH to receive
         address[] memory path = new address[](2);

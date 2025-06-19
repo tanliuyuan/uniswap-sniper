@@ -60,7 +60,7 @@ contract UsageExamples {
     /**
      * @dev Example: Check trading limits before executing
      */
-    function checkTradingLimits(uint256 ethAmount) external view returns (bool canTrade, string memory reason) {
+    function checkTradingLimits(uint256 ethAmount) public view returns (bool canTrade, string memory reason) {
         // Check max trade amount
         if (ethAmount > sniper.maxTradeAmount()) {
             return (false, "Exceeds max trade amount");
