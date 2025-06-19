@@ -32,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/uniswap-sniper-bot.git"
+    "url": "https://github.com/tanliuyuan/uniswap-sniper-bot.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/uniswap-sniper-bot/issues"
+    "url": "https://github.com/tanliuyuan/uniswap-sniper-bot/issues"
   },
-  "homepage": "https://github.com/yourusername/uniswap-sniper-bot#readme"
+  "homepage": "https://github.com/tanliuyuan/uniswap-sniper-bot#readme"
 } 

@@ -117,10 +117,10 @@ bool exists = sniper.pairExists(tokenAddress, wethAddress);
 
 ## 📖 **Detailed Documentation**
 
-- **[Remix Usage Guide](docs/REMIX_USAGE_GUIDE.md)**: Complete guide for using the contracts in Remix
-- **[Bot Setup Guide](docs/BOT_SETUP_GUIDE.md)**: Step-by-step bot installation and configuration
-- **[Security Checklist](docs/SECURITY_CHECKLIST.md)**: Comprehensive security review checklist
-- **[Usage Examples](remix-contracts/examples/UsageExamples.sol)**: Code examples for common use cases
+- **[Remix Usage Guide](uniswap-sniper/docs/REMIX_USAGE_GUIDE.md)**: Complete guide for using the contracts in Remix
+- **[Bot Setup Guide](uniswap-sniper/docs/BOT_SETUP_GUIDE.md)**: Step-by-step bot installation and configuration
+- **[Security Checklist](uniswap-sniper/docs/SECURITY_CHECKLIST.md)**: Comprehensive security review checklist
+- **[Usage Examples](uniswap-sniper/remix-contracts/examples/UsageExamples.sol)**: Code examples for common use cases
 
 ## 🔒 **Security Features**
 
@@ -187,7 +187,7 @@ This project consists of **two components** that work together:
 ### Local Development
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/uniswap-sniper.git
+git clone https://github.com/tanliuyuan/uniswap-sniper.git
 cd uniswap-sniper
 
 # For contracts: Import remix-contracts/ into Remix IDE
